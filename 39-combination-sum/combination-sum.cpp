@@ -1,7 +1,7 @@
 class Solution {
 public:
 vector<vector<int>> ans;
-void back(vector<int>& candidates,int target,int sum,vector<int>& res,int start)
+void back(vector<int>& candidates,int target,int sum,int index,vector<int>& res)
 {
     if(sum==target)
     {
@@ -12,19 +12,16 @@ void back(vector<int>& candidates,int target,int sum,vector<int>& res,int start)
     {
         return;
     }
-    else
+    for(int i=index;i<candidates.size();i++)
     {
-        for(int i=start;i<candidates.size();i++)
-        {
-            res.push_back(candidates[i]);
-            back(candidates,target,sum+candidates[i],res,i);
-            res.pop_back();
-        }
+        res.push_back(candidates[i]);
+        back(candidates,target,sum+candidates[i],i,res);
+        res.pop_back();
     }
 }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<int> res;
-        back(candidates,target,0,res,0);
+        back(candidates,target,0,0,res);
         return ans;
     }
 };
