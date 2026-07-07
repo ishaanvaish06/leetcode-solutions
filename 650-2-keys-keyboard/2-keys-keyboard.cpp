@@ -18,6 +18,7 @@ int func(int clip,int screen,int n)
         {
             return 0;
         }
-        return 1 + func(1,1,n);
+        func(1,1,n);
+        return 1 + dp[1][1];
     }
 };
