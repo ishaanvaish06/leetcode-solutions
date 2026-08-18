@@ -1,6 +1,6 @@
 class Solution {
 public:
-int maxArea=INT_MIN;
+int maxArea=0;
 int a=0;
 int b=0;
 void bfs(int r,int c,vector<vector<bool>>& visited,vector<vector<int>>& grid)
@@ -44,6 +44,6 @@ void bfs(int r,int c,vector<vector<bool>>& visited,vector<vector<int>>& grid)
                 }
             }
         }
-        return max(maxArea,0);
+        return maxArea;
     }
 };
