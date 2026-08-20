@@ -12,11 +12,11 @@ class Solution:
             if a>b:
                 l1.append(nums[i])
                 a=nums[i]
-                print(l1)
+                
             else:
                 l2.append(nums[i])
                 b=nums[i]
-                print(l2)
+                
 
         return l1+l2
         
