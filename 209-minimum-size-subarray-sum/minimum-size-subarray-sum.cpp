@@ -4,26 +4,21 @@ public:
         int l=0;
         int r=0;
         int sum=0;
-        int curr=0;
-        int minLen=INT_MAX;
-        if(nums.size()==1 && nums[0]>=target) return 1;
+        int len=INT_MAX;
         while(r<nums.size())
         {
-            if(target>sum)
+            sum=sum+nums[r];
+            while(sum>=target)
             {
-                sum=sum+nums[r];
-                curr++;
-                r++;
-                
+                if(sum>=target)
+            {
+                len=min(len,r-l+1);
             }
-            while(target<=sum){
-                minLen=min(curr,minLen);
-                sum=sum-nums[l];
-                curr--;
+                sum-=nums[l];
                 l++;
             }
+            r++;
         }
-        if(minLen==INT_MAX) return 0;
-        return minLen;
+        return (len==INT_MAX)? 0:len;
     }
 };
